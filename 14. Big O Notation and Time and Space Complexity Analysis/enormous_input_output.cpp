@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-using namespace ios;
 
 int main() {
     ios::sync_with_stdio(false);
