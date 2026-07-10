@@ -1,20 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+const int MAX = 1000000;
+
 int main()
 {
-    int a, b, c, count = 0;
-    cin >> a >> b >> c;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    for (int i = a; i <= b; i++)
+    vector<int> divisors(MAX + 1, 0);
+
+    // Precompute divisor counts
+    for (int i = 1; i <= MAX; i++)
     {
-        if (c % i == 0)
+        for (int j = i; j <= MAX; j += i)
         {
-            count++;
+            divisors[j]++;
         }
     }
 
-    cout << count << endl;
+    int n;
+    cin >> n;
+
+    while (n--)
+    {
+        int x;
+        cin >> x;
+        cout << divisors[x] << '\n';
+    }
 
     return 0;
 }
